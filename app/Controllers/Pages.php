@@ -7,21 +7,27 @@ class Pages extends BaseController
 	public function index()
 	{
 		$data['title'] = 'Home';
-		echo \view('layout/header', $data);
-		echo \view('pages/index');
-		echo \view('layout/footer');
+		return \view('pages/index', $data);
 	}
 
 	public function about()
 	{
-		$data['didik'] = [
-			'nama' => 'Didik Prabowo',
-			'umur' => 19,
-			'alamat' => 'Desa Sumberejo, Kecamatan Maospati'
+		$data = [
+			'title' => 'About',
+			'alamat' => [
+				[
+					'tipe' => 'rumah',
+					'alamat' => 'Desa Sumberejo Kecamatan Maospati',
+					'provinsi' => 'Jawa Timur'
+				],
+				[
+					'tipe' => 'kantor',
+					'alamat' => 'Desa Badan Kecamatan Abc',
+					'provinsi' => 'DKI Jakarta'
+				]
+			]
 		];
-		$data['title'] = 'About';
-		echo \view('layout/header', $data);
-		echo \view('pages/about', $data);
-		echo \view('layout/footer');
+
+		return view('pages/about', $data);
 	}
 }
