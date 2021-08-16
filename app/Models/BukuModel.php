@@ -1,0 +1,9 @@
+<?php
+
+use CodeIgniter\Model;
+
+class BukuModel extends Model
+{
+    protected $table = 'buku';
+    protected $useTimestamps = true;
+}
