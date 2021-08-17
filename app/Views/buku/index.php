@@ -23,7 +23,7 @@
                     </td>
                     <td><?= $book['judul']; ?></td>
                     <td>
-                        <a href="" class="btn btn-success">Detail</a>
+                        <a href="Buku/<?= $book['slug']; ?>" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
