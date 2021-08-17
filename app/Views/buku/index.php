@@ -3,7 +3,16 @@
 <?= $this->section('content'); ?>
 
 <div class="container mt-3">
-    <h2 class="text-center">Daftar Buku</h2>
+    <a href="/Buku/create" class="btn btn-primary float-end">Tambah Data</a>
+    <h2 class="text-center mb-3">Daftar Buku</h2>
+
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
     <table class="table table-striped border mt-3">
         <thead>
             <tr>
@@ -23,7 +32,7 @@
                     </td>
                     <td><?= $book['judul']; ?></td>
                     <td>
-                        <a href="Buku/<?= $book['slug']; ?>" class="btn btn-success">Detail</a>
+                        <a href="buku/<?= $book['slug']; ?>" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
