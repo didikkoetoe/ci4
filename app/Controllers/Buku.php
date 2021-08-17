@@ -2,20 +2,27 @@
 
 namespace App\Controllers;
 
-use Codeigniter\Model\BukuModel;
+use App\Models\BukuModel;
 
 class Buku extends BaseController
 {
+    protected $bukuModel;
+
+    public function __construct()
+    {
+        $this->bukuModel = new BukuModel();
+    }
+
     public function index()
     {
+        $buku = $this->bukuModel->findAll();
+
         $data = [
-            'title' => 'Buku'
+            'title' => 'Buku',
+            'buku' => $buku
         ];
 
-        $bukuModel = new BukuModel();
-        $buku = $bukuModel->findAll();
 
-        \dd($buku);
 
         return \view('buku/index', $data);
     }
